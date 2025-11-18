@@ -8,10 +8,29 @@ use Illuminate\Support\Facades\File;
 class MensajeController extends Controller
 {
     // Muestra el formulario
-    public function create()
+    public function create(Request $request)
     {
+        $yaMostrado = $request->cookie("formulario_mostrado");
+
+        // Si la cookie no existe, mostramos el mensaje de bienvenida
+        if (!$yaMostrado) {
+            // Crear una cookie que dure 60 minutos
+            $cookie = cookie("formulario_mostrado", "si", 60);
+
+            // Retornamos la vista con la cookie adjunta
+            return response()
+                ->view('mensaje.create', ['bienvenida' => "Bienvenido al formulario de mensajes"])
+                ->cookie($cookie);
+        }
+        // Si la cookie ya existe, no mostramos el mensaje de bienvenida
+        else {
+            return view('mensaje.create', ['bienvenida' => ""]);
+        }
+        /*
+        $bienvenida = "Bienvenido al formulario de mensajes";
+
         // Retornamos la vista del formulario
-        return view('mensaje.create');
+        return view('mensaje.create', compact('bienvenida'));*/
     }
 
     public function store(Request $request)

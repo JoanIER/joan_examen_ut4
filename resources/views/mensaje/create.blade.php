@@ -25,6 +25,8 @@
         </div>
     @endif
 
+    <p>{{ $bienvenida }}</p>
+
     <p><a href="{{ route('mensaje.index') }}">Ver mensajes enviados</a></p>
 
     {{-- Formulario --}}
