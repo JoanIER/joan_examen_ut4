@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MensajeController;
+use App\Http\Controllers\NotaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +31,12 @@ Route::middleware(['auth'
 
    Route::post('/admin/users/store', [App\Http\Controllers\Admin\UserController::class, 'store']
    )->name('admin.users.store');
+
+   Route::get('/admin/students/create', [App\Http\Controllers\Admin\NotasController::class, 'create']
+   )->name('admin.students.create');
+
+   Route::post('/admin/students/store', [App\Http\Controllers\Admin\NotasController::class, 'store']
+   )->name('admin.students.store');
 });
 
 // Rutas generadas por Jetstream para autenticación y dashboard

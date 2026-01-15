@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Sergio</b>Admin',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Joan</b>Admin',
+    'logo_img' => 'vendor/adminlte/dist/img/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -325,7 +325,11 @@ return [
            'url' => 'admin/users/create',
            'icon' => 'fas fa-fw fa-user-plus',
        ],
-
+       [
+           'text' => 'Notas alumnos',
+           'url' => 'admin.students.create',
+           'icon' => 'far fa-fw fa-file',
+       ],
         [
             'text' => 'blog',
             'url' => 'admin/blog',
